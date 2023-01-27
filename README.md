@@ -1,3 +1,12 @@
+![slackr](slackr.png)
+
+# Demo
+
+https://slackr.onrender.com/
+
+test username: mia@email.com
+password: solongbouldercity
+
 # Assessment 2 - Vanilla JS: Slackr
 
 1. Background & Motivation
