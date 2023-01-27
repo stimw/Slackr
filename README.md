@@ -5,6 +5,7 @@
 https://slackr.onrender.com/
 
 test username: mia@email.com
+
 password: solongbouldercity
 
 # Assessment 2 - Vanilla JS: Slackr
