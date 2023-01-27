@@ -1,0 +1,20 @@
+{
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "daisyui": "^2.31.0",
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.1.13",
+    "tailwindcss": "^3.1.8"
+  },
+  "scripts": {
+    "tw": "npx tailwindcss -i ./styles/provided.css -o ./dist/output.css --watch",
+    "start": "live-server ./ --watch=\"src\",\"index.html\" --ignore=\"node_modules/**\"",
+    "quite": "live-server ./ --watch=\"\" --ignore=\"node_modules/**\"",
+    "http-server": "http-server -c-1"
+  }
+}

@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html class="h-full" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Slackr</title>
+    <meta
+      name="viewport"
+      charset="UTF-8"
+      content="width=device-width, initial-scale=1"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="styles/provided.css"
+    />
+    <link href="./dist/output.css" rel="stylesheet" />
+    <script type="module" src="src/helpers.js"></script>
+  </head>
+
+  <body>
+    <div id="login" class="">
+      <div
+        class="flex h-screen flex-col bg-gray-800 pb-12 pt-20 sm:px-6 lg:px-8"
+      >
+        <div class="sm:mx-auto sm:w-full sm:max-w-md">
+          <svg
+            class="mx-auto h-12 w-auto"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 60 60"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <path
+              d="M22,12 a6,6 0 1 1 6,-6 v6z M22,16 a6,6 0 0 1 0,12 h-16 a6,6 0 1 1 0,-12"
+              fill="#36C5F0"
+            />
+            <path
+              d="M48,22 a6,6 0 1 1 6,6 h-6z M32,6 a6,6 0 1 1 12,0v16a6,6 0 0 1 -12,0z"
+              fill="#2EB67D"
+            />
+            <path
+              d="M38,48 a6,6 0 1 1 -6,6 v-6z M54,32 a6,6 0 0 1 0,12 h-16 a6,6 0 1 1 0,-12"
+              fill="#ECB22E"
+            />
+            <path
+              d="M12,38 a6,6 0 1 1 -6,-6 h6z M16,38 a6,6 0 1 1 12,0v16a6,6 0 0 1 -12,0z"
+              fill="#E01E5A"
+            />
+          </svg>
+          <h2
+            class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-100"
+          >
+            Sign in to Slackr<span class="ml-2 font-title">: )</span>
+          </h2>
+        </div>
+
+        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+          <div class="bg-gray-700 py-8 px-4 shadow sm:rounded-lg sm:px-10">
+            <form class="space-y-6" action="#" method="POST">
+              <div>
+                <label
+                  for="email"
+                  class="block text-sm font-medium text-gray-100"
+                  >Email address</label
+                >
+                <div class="mt-1">
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    required
+                    class="block w-full appearance-none rounded-md border border-gray-300 bg-gray-600 px-3 py-2 text-gray-100 placeholder-gray-200 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 sm:text-sm"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  for="password"
+                  class="block text-sm font-medium text-gray-100"
+                  >Password</label
+                >
+                <div class="mt-1">
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    autocomplete="current-password"
+                    required
+                    class="block w-full appearance-none rounded-md border border-gray-300 bg-gray-600 px-3 py-2 text-gray-100 placeholder-gray-200 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 sm:text-sm"
+                  />
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <input
+                    id="remember-me"
+                    name="remember-me"
+                    type="checkbox"
+                    class="h-4 w-4 rounded border-gray-300 bg-gray-600 text-emerald-600 focus:ring-emerald-500"
+                  />
+                  <label
+                    for="remember-me"
+                    class="ml-2 block text-sm text-gray-100"
+                    >Remember me</label
+                  >
+                </div>
+
+                <div class="text-sm">
+                  <div
+                    class="font-medium text-emerald-600 hover:cursor-pointer hover:text-emerald-500"
+                  >
+                    Forgot your password?
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <button
+                  type="submit"
+                  id="loginSubmit"
+                  class="flex w-full justify-center rounded-md border border-transparent bg-emerald-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                >
+                  Sign in
+                </button>
+              </div>
+            </form>
+            <div
+              class="mt-5 flex justify-center text-sm font-medium text-gray-100"
+            >
+              Do not have an account? Just
+              <a
+                id="registerLink"
+                href="#"
+                class="mx-1 text-emerald-600 hover:text-emerald-500"
+                >sign up</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="register" class="hidden">
+      <div
+        class="flex h-screen flex-col bg-gray-800 pb-12 pt-20 sm:px-6 lg:px-8"
+      >
+        <div class="sm:mx-auto sm:w-full sm:max-w-md">
+          <svg
+            class="mx-auto h-12 w-auto"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 60 60"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <path
+              d="M22,12 a6,6 0 1 1 6,-6 v6z M22,16 a6,6 0 0 1 0,12 h-16 a6,6 0 1 1 0,-12"
+              fill="#36C5F0"
+            />
+            <path
+              d="M48,22 a6,6 0 1 1 6,6 h-6z M32,6 a6,6 0 1 1 12,0v16a6,6 0 0 1 -12,0z"
+              fill="#2EB67D"
+            />
+            <path
+              d="M38,48 a6,6 0 1 1 -6,6 v-6z M54,32 a6,6 0 0 1 0,12 h-16 a6,6 0 1 1 0,-12"
+              fill="#ECB22E"
+            />
+            <path
+              d="M12,38 a6,6 0 1 1 -6,-6 h6z M16,38 a6,6 0 1 1 12,0v16a6,6 0 0 1 -12,0z"
+              fill="#E01E5A"
+            />
+          </svg>
+          <h2
+            class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-100"
+          >
+            Sign up to enjoy<span class="ml-2 font-title">: )</span>
+          </h2>
+        </div>
+
+        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+          <div class="bg-gray-700 py-8 px-4 shadow sm:rounded-lg sm:px-10">
+            <form class="space-y-6" action="#" method="POST">
+              <div>
+                <label
+                  for="registerEmail"
+                  class="block text-sm font-medium text-gray-100"
+                  >Email address</label
+                >
+                <div class="mt-1">
+                  <input
+                    id="registerEmail"
+                    name="registerEmail"
+                    type="email"
+                    autocomplete="email"
+                    required
+                    class="block w-full appearance-none rounded-md border border-gray-300 bg-gray-600 px-3 py-2 text-gray-100 placeholder-gray-200 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 sm:text-sm"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  for="registerConfirmPassword"
+                  class="block text-sm font-medium text-gray-100"
+                  >Password</label
+                >
+                <div class="mt-1">
+                  <input
+                    id="registerConfirmPassword"
+                    name="registerConfirmPassword"
+                    type="password"
+                    autocomplete="current-password"
+                    required
+                    class="block w-full appearance-none rounded-md border border-gray-300 bg-gray-600 px-3 py-2 text-gray-100 placeholder-gray-200 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 sm:text-sm"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  for="registerPassword"
+                  class="block text-sm font-medium text-gray-100"
+                  >Confirm Password</label
+                >
+                <div class="mt-1">
+                  <input
+                    id="registerPassword"
+                    name="registerPassword"
+                    type="password"
+                    autocomplete="current-password"
+                    required
+                    class="block w-full appearance-none rounded-md border border-gray-300 bg-gray-600 px-3 py-2 text-gray-100 placeholder-gray-200 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 sm:text-sm"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  for="registerName"
+                  class="block text-sm font-medium text-gray-100"
+                  >Name</label
+                >
+                <div class="mt-1">
+                  <input
+                    id="registerName"
+                    name="registerName"
+                    type="text"
+                    autocomplete="current-password"
+                    required
+                    class="block w-full appearance-none rounded-md border border-gray-300 bg-gray-600 px-3 py-2 text-gray-100 placeholder-gray-200 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 sm:text-sm"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <button
+                  type="submit"
+                  id="registerSubmit"
+                  class="flex w-full justify-center rounded-md border border-transparent bg-emerald-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                >
+                  Sign up
+                </button>
+              </div>
+
+              <div class="text-smf flex justify-center">
+                <a
+                  id="registerBack"
+                  href="#"
+                  class="flex items-center justify-center gap-1.5 font-medium text-emerald-600 hover:text-emerald-500"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="h-3 w-3"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
+                    />
+                  </svg>
+                  back
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main id="main" class="hidden">
+      <div class="flex h-screen text-gray-100">
+        <!--  Server Col -->
+        <div id="server-col" class="hidden space-y-2 bg-gray-900 p-3 md:block">
+          <div class="group relative">
+            <div class="absolute -left-3 flex h-full items-center">
+              <div
+                class="h-5 w-1 origin-left scale-0 rounded-r bg-white opacity-0 transition-all duration-200 group-hover:scale-100 group-hover:opacity-100"
+              ></div>
+            </div>
+            <div
+              class="flex h-12 w-12 items-center justify-center rounded-3xl bg-gray-700 text-gray-100 transition-all duration-200 group-hover:cursor-pointer group-hover:rounded-2xl group-hover:bg-brand group-hover:text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 60 60"
+                class="h-6 w-6"
+                preserveAspectRatio="xMidYMid meet"
+              >
+                <title>Slack Logo SVG</title>
+                <path
+                  d="M22,12 a6,6 0 1 1 6,-6 v6z M22,16 a6,6 0 0 1 0,12 h-16 a6,6 0 1 1 0,-12"
+                  fill="currentColor"
+                />
+                <path
+                  d="M48,22 a6,6 0 1 1 6,6 h-6z M32,6 a6,6 0 1 1 12,0v16a6,6 0 0 1 -12,0z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M38,48 a6,6 0 1 1 -6,6 v-6z M54,32 a6,6 0 0 1 0,12 h-16
+              a6,6 0 1 1 0,-12"
+                  fill="currentColor"
+                />
+                <path
+                  d="M12,38 a6,6 0 1 1 -6,-6 h6z M16,38 a6,6 0 1 1 12,0v16a6,6 0 0 1 -12,0z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+          </div>
+          <hr class="mx-2 rounded border-t-2 border-t-white/[0.06]" />
+          <div class="group relative">
+            <div class="absolute -left-3 flex h-full items-center">
+              <div class="h-8 w-1 rounded-r bg-white opacity-100"></div>
+            </div>
+            <div
+              class="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand text-white group-hover:cursor-pointer"
+            >
+              <svg
+                class="h-7 w-7"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="group relative">
+            <div class="absolute -left-3 flex h-full items-center">
+              <div
+                class="h-5 w-1 origin-left scale-0 rounded-r bg-white opacity-0 transition-all duration-200 group-hover:scale-100 group-hover:opacity-100"
+              ></div>
+            </div>
+            <div
+              class="flex h-12 w-12 items-center justify-center rounded-3xl bg-gray-700 text-gray-100 transition-all duration-200 group-hover:cursor-pointer group-hover:rounded-2xl group-hover:bg-brand group-hover:text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-7 w-7"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <!--  Channel Col -->
+        <div id="channel-col" class="hidden w-60 flex-col bg-gray-800 md:flex">
+          <!--Server Title-->
+          <button
+            class="flex h-12 flex-shrink-0 items-center px-3 font-title text-white shadow-md transition hover:bg-gray-700"
+            id="server-title"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="mr-2 h-5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"
+              />
+            </svg>
+            Server
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="ml-auto h-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+              />
+            </svg>
+          </button>
+          <!--Channel Area-->
+          <div
+            class="mt-4 flex-1 overflow-x-hidden overflow-y-scroll font-medium text-gray-300"
+          >
+            <!--Fake Area-->
+            <div class="space-y-0.5">
+              <div
+                class="group mx-2 flex items-center px-2 py-1 text-gray-300 hover:cursor-pointer hover:rounded hover:bg-gray-700 hover:text-gray-100"
+              >
+                <svg viewBox="0 0 40 40" class="mr-1.5 h-5 w-5 text-gray-400">
+                  <path
+                    fill="currentColor"
+                    d="M33 34.583V7.5h2v29.167H9c-2.209 0-4-1.866-4-4.167v-25c0-2.301 1.791-4.167 4-4.167h22v27.084H9c-1.104 0-2 .931-2 2.083 0 1.151.896 2.083 2 2.083h24zM23.972 10l-8.083 7.991-3.18-3.147L10 17.506l5.889 5.827 10.778-10.666L23.972 10z"
+                  />
+                </svg>
+                welcome
+              </div>
+              <div
+                class="group mx-2 flex items-center px-2 py-1 text-gray-300 hover:cursor-pointer hover:rounded hover:bg-gray-700 hover:text-gray-100"
+              >
+                <svg viewBox="0 0 24 24" class="mr-1.5 h-5 w-5 text-gray-400">
+                  <path
+                    d="M3.9 8.26H2v7.034h1.9V8.26zM19.1 4v1.127L4.85 8.264v9.854c0 .432.296.807.72.914l3.8.94a.954.954 0 00.99-.35l2.347-3.098L19.1 17.93v1.129H21V4h-1.9zM9.218 17.994l-2.468-.611V15.21l3.92.864-1.452 1.92z"
+                    fill="currentColor"
+                  />
+                </svg>
+                announcements
+              </div>
+            </div>
+            <!--Real Area-->
+            <div class="mt-5">
+              <!--Category joined-->
+              <div class="group flex place-content-between items-center">
+                <button
+                  id="category-1"
+                  class="mb-1 flex items-center px-0.5 font-title text-xs uppercase tracking-wide group-hover:text-gray-100"
+                >
+                  <svg
+                    class="mx-1 h-2.5 w-2.5 transition duration-200"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="3"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                  Joined channels
+                </button>
+                <label
+                  for="create-channel-modal"
+                  class="modal-button tooltip tooltip-left mb-1 mr-5 h-4 w-4 text-gray-300 hover:cursor-pointer hover:text-gray-100"
+                  data-tip="Create Channel"
+                  id="channel-create-modal-btn"
+                  onclick="document.querySelector('#create-channel-form').reset()"
+                >
+                  <svg x="0" y="0" viewBox="0 0 18 18">
+                    <polygon
+                      fill-rule="nonzero"
+                      fill="currentColor"
+                      points="15 10 10 10 10 15 8 15 8 10 3 10 3 8 8 8 8 3 10 3 10 8 15 8"
+                    ></polygon>
+                  </svg>
+                </label>
+              </div>
+              <!--Channels joined-->
+              <div id="channelList" class=""></div>
+
+              <!--Category Not joined-->
+              <div class="group mt-5 flex place-content-between items-center">
+                <button
+                  id="category-2"
+                  class="mb-1 flex items-center px-0.5 font-title text-xs uppercase tracking-wide group-hover:text-gray-100"
+                >
+                  <svg
+                    class="mx-1 h-2.5 w-2.5 transition duration-200"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="3"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                  Not Joined
+                </button>
+              </div>
+              <!--Channels not joined-->
+              <div id="channelList-unjoined" class=""></div>
+            </div>
+          </div>
+          <!--User Area-->
+          <div
+            class="flex h-12 flex-shrink-0 items-center bg-gray-850 px-3 text-white shadow-md"
+          >
+            <div
+              id="current-user"
+              class="group flex items-center overflow-x-visible px-2 py-1 text-gray-300 hover:cursor-pointer hover:rounded hover:bg-gray-700 hover:text-gray-100"
+            >
+              <div class="avatar online">
+                <div class="w-8 rounded-full">
+                  <img src="./dist/avatar/25.png" alt="user image" />
+                </div>
+              </div>
+              <div class="ml-2 flex flex-col justify-center">
+                <div class="font-title text-xs font-bold text-gray-100">
+                  UserName
+                </div>
+                <div class="text-2xs font-medium">#9527</div>
+              </div>
+            </div>
+            <!--            <div-->
+            <!--              class="tooltip ml-auto flex h-8 w-8 items-center justify-center text-gray-400 text-gray-200 hover:cursor-pointer hover:rounded hover:bg-gray-700 hover:text-gray-100"-->
+            <!--              data-tip="Logout"-->
+            <!--            >-->
+            <!--              <svg viewBox="0 0 24 24" class="h-5 w-5">-->
+            <!--                <path fill="currentColor" d="M18 2H7C5.897 2 5 2.898 5 4V11H12.59L10.293 8.708L11.706 7.292L16.414 11.991L11.708 16.706L10.292 15.294L12.582 13H5V20C5 21.103 5.897 22 7 22H18C19.103 22 20 21.103 20 20V4C20 2.898 19.103 2 18 2Z">-->
+            <!--                </path>-->
+            <!--              </svg>-->
+            <!--            </div>-->
+            <a
+              href="/#profile"
+              class="tooltip ml-auto flex h-8 w-8 items-center justify-center text-gray-400 text-gray-200 hover:cursor-pointer hover:rounded hover:bg-gray-700 hover:text-gray-100"
+              data-tip="Edit Profile"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="h-5 w-5"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 00-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 00-2.282.819l-.922 1.597a1.875 1.875 0 00.432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 000 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 00-.432 2.385l.922 1.597a1.875 1.875 0 002.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 002.28-.819l.923-1.597a1.875 1.875 0 00-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 000-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 00-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 00-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 00-1.85-1.567h-1.843zM12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <!--  Message Col -->
+        <div id="message-col" class="flex !hidden flex-1 flex-col bg-gray-700">
+          <!-- Channel Nav -->
+          <div class="flex h-12 items-center px-3 font-title shadow-md">
+            <button class="mobile mr-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="h-6 w-6"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+            <div>Message</div>
+            <div class="ml-auto mr-2 flex items-center gap-2 font-sans">
+              <label
+                id="pinned-msg-btn"
+                for="channel-pin-modal"
+                class="modal-button tooltip tooltip-bottom w-5 text-gray-200 hover:cursor-pointer hover:text-gray-100"
+                data-tip="Pinned Message"
+              >
+                <svg viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M22 12L12.101 2.10101L10.686 3.51401L12.101 4.92901L7.15096 9.87801V9.88001L5.73596 8.46501L4.32196 9.88001L8.56496 14.122L2.90796 19.778L4.32196 21.192L9.97896 15.536L14.222 19.778L15.636 18.364L14.222 16.95L19.171 12H19.172L20.586 13.414L22 12Z"
+                  ></path>
+                </svg>
+              </label>
+              <div class="dropdown dropdown-end h-5 w-5 hover:cursor-pointer">
+                <label
+                  tabindex="0"
+                  id="channel-info-btn"
+                  class="tooltip tooltip-bottom w-5 text-gray-200 hover:cursor-pointer hover:text-gray-100"
+                  data-tip="Channel Info"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </label>
+                <div tabindex="0" class="dropdown-content">
+                  <div class="card w-60 bg-gray-600 shadow-xl">
+                    <div class="card-body">
+                      <h2 id="channel-detail-name" class="card-title">
+                        Channel
+                      </h2>
+                      <p id="channel-detail-description">description</p>
+                      <div
+                        id="channel-detail-private"
+                        class="badge badge-accent badge-outline"
+                      >
+                        public
+                      </div>
+                      <p id="channel-detail-creator" class="text-xs underline">
+                        created by stimw
+                      </p>
+                      <p id="channel-detail-time" class="text-xs underline">
+                        created at 2010-09-21 6:00PM
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <label
+                id="channel-leave-btn"
+                for="channel-leave-modal"
+                class="ml-2 w-auto rounded border-2 border-emerald-500 p-1 text-xs text-emerald-500 hover:cursor-pointer hover:border-red-500 hover:text-red-500"
+              >
+                Leave Channel
+              </label>
+            </div>
+          </div>
+          <!-- Messages Area -->
+          <div class="flex flex-1 flex-col-reverse overflow-y-scroll pb-4">
+            <div id="message-container" class="w-full"></div>
+          </div>
+          <!-- Send Area -->
+          <div
+            id="send-area"
+            class="mx-4 mb-5 flex flex items-center rounded-md bg-gray-600 px-2"
+          >
+            <label
+              for="send-image"
+              class="tooltip hover:cursor-pointer"
+              data-tip="Upload Photo"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  class="attachButtonPlus-3IYelE"
+                  fill="currentColor"
+                  d="M12 2.00098C6.486 2.00098 2 6.48698 2 12.001C2 17.515 6.486 22.001 12 22.001C17.514 22.001 22 17.515 22 12.001C22 6.48698 17.514 2.00098 12 2.00098ZM17 13.001H13V17.001H11V13.001H7V11.001H11V7.00098H13V11.001H17V13.001Z"
+                ></path>
+              </svg>
+            </label>
+            <input type="file" id="send-image" hidden />
+            <div class="flex-1">
+              <label for="send" class="sr-only"></label>
+              <input
+                type="text"
+                name="send"
+                id="send"
+                class="block w-full rounded-md border-hidden bg-gray-600 text-gray-100 text-white shadow-sm placeholder:text-gray-300 focus:ring-0 focus:ring-offset-0 sm:text-sm"
+                placeholder="Message Here"
+              />
+            </div>
+            <kbd class="kbd kbd-xs select-none bg-gray-600 text-gray-300">
+              Enter
+              <span class="ml-1 text-xl">⏎</span>
+            </kbd>
+          </div>
+        </div>
+        <!--  Homepage Col -->
+        <div id="homepage" class="flex flex-1 flex-col bg-gray-700">
+          <!-- Channel Nav -->
+          <div class="flex h-12 items-center px-3 font-title shadow-md">
+            <button class="mobile mr-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="h-6 w-6"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+          <!-- Messages Area -->
+          <div
+            class="flex flex-1 select-none flex-col items-center justify-center pb-4 pb-52 text-gray-400"
+          >
+            <p class="pb-12 font-title text-2xl font-bold tracking-wide">
+              click the channel to enjoy!
+            </p>
+            <div class="stats shadow-md">
+              <div class="stat bg-gray-700">
+                <div class="stat-title">Users now</div>
+                <div id="all-users-number" class="stat-value">89,400</div>
+                <div class="stat-desc">Ready to start your journey?</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--  Profile Col -->
+        <div id="profile" class="flex !hidden flex-1 flex-col bg-gray-700">
+          <!-- Channel Nav -->
+          <div class="flex h-12 items-center px-3 font-title shadow-md">
+            <button class="mobile mr-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="h-6 w-6"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+          <!-- Messages Area -->
+          <div class="flex flex-1 overflow-y-scroll p-4 text-gray-400">
+            <div class="flex flex-1 items-center justify-center">
+              <form class="w-56 space-y-6" action="#" method="POST">
+                <div class="flex items-center justify-center gap-2">
+                  <img
+                    id="profile-avatar"
+                    class="z-0 mr-4 mt-0.5 h-16 w-16 select-none rounded-full"
+                    src="./dist/avatar/25.png"
+                    alt=""
+                  />
+                  <label
+                    for="upload-avatar"
+                    class="tooltip hover:cursor-pointer"
+                    data-tip="Upload Avatar"
+                  >
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                      <path
+                        class="attachButtonPlus-3IYelE"
+                        fill="currentColor"
+                        d="M12 2.00098C6.486 2.00098 2 6.48698 2 12.001C2 17.515 6.486 22.001 12 22.001C17.514 22.001 22 17.515 22 12.001C22 6.48698 17.514 2.00098 12 2.00098ZM17 13.001H13V17.001H11V13.001H7V11.001H11V7.00098H13V11.001H17V13.001Z"
+                      ></path>
+                    </svg>
+                  </label>
+                  <input type="file" id="upload-avatar" hidden />
+                </div>
+                <div class="flex flex-col justify-center gap-2">
+                  <label
+                    for="profile-name"
+                    class="block text-sm font-medium text-gray-100"
+                    >Username</label
+                  >
+                  <div class="mt-1">
+                    <input
+                      id="profile-name"
+                      name="profile-name"
+                      type="text"
+                      value="profile-name"
+                      class="w-full appearance-none rounded-md border border-gray-300 bg-gray-600 px-3 py-2 text-gray-100 placeholder-gray-200 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-emerald-500"
+                    />
+                  </div>
+                </div>
+                <div class="flex flex-col justify-center gap-2">
+                  <label
+                    for="profile-email"
+                    class="text-sm font-medium text-gray-100"
+                    >Email</label
+                  >
+                  <div class="mt-1">
+                    <input
+                      id="profile-email"
+                      name="profile-email"
+                      type="text"
+                      value="profile-email"
+                      class="w-full appearance-none rounded-md border border-gray-300 bg-gray-600 px-3 py-2 text-gray-100 placeholder-gray-200 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-emerald-500"
+                    />
+                  </div>
+                </div>
+                <div class="flex flex-col justify-center gap-2">
+                  <label
+                    for="profile-password"
+                    class="text-sm font-medium text-gray-100"
+                    >Password</label
+                  >
+                  <div class="relative mt-1 flex items-center">
+                    <input
+                      id="profile-password"
+                      name="profile-password"
+                      type="password"
+                      value=""
+                      class="w-full appearance-none rounded-md border border-gray-300 bg-gray-600 px-3 py-2 text-gray-100 placeholder-gray-200 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-emerald-500"
+                    />
+                    <div
+                      id="profile-toggle-password"
+                      class="absolute -right-8 h-5 w-5 hover:cursor-pointer hover:text-gray-100"
+                    >
+                      <svg
+                        id="profile-display-pwd"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                        <path
+                          fill-rule="evenodd"
+                          d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                      <svg
+                        id="profile-hide-pwd"
+                        class="hidden"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path
+                          d="M3.53 2.47a.75.75 0 00-1.06 1.06l18 18a.75.75 0 101.06-1.06l-18-18zM22.676 12.553a11.249 11.249 0 01-2.631 4.31l-3.099-3.099a5.25 5.25 0 00-6.71-6.71L7.759 4.577a11.217 11.217 0 014.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113z"
+                        />
+                        <path
+                          d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0115.75 12zM12.53 15.713l-4.243-4.244a3.75 3.75 0 004.243 4.243z"
+                        />
+                        <path
+                          d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 00-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 016.75 12z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col justify-center gap-2">
+                  <label
+                    for="profile-bio"
+                    class="text-sm font-medium text-gray-100"
+                    >Bio</label
+                  >
+                  <div class="mt-1">
+                    <input
+                      id="profile-bio"
+                      name="profile-bio"
+                      type="text"
+                      value="profile-bio"
+                      class="w-full appearance-none rounded-md border border-gray-300 bg-gray-600 px-3 py-2 text-gray-100 placeholder-gray-200 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-emerald-500"
+                    />
+                  </div>
+                </div>
+                <div class="flex justify-between">
+                  <label
+                    id="profile-back"
+                    class="btn border-hidden bg-gray-800 hover:bg-gray-600 hover:text-gray-100"
+                    >Back</label
+                  >
+                  <label
+                    id="profile-submit"
+                    class="btn border-hidden bg-gray-800 hover:bg-gray-600 hover:text-gray-100"
+                    >OK</label
+                  >
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!--  All Users Profile Col -->
+        <div
+          id="profile-users"
+          class="flex !hidden flex-1 flex-col bg-gray-700"
+        >
+          <!-- Channel Nav -->
+          <div class="flex h-12 items-center px-3 font-title shadow-md">
+            <button class="mobile mr-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="h-6 w-6"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+          <!-- Messages Area -->
+          <div class="flex flex-1 overflow-y-scroll p-4 text-gray-400">
+            <div class="flex flex-1 flex-col items-center justify-center">
+              <div class="flex flex-col items-center justify-center p-8">
+                <img
+                  id="profile-user-avatar"
+                  class="mx-auto h-32 w-32 flex-shrink-0 rounded-full"
+                  src="./dist/avatar/25.png"
+                  alt="avatar"
+                />
+                <h3
+                  id="profile-user-name"
+                  class="mt-6 text-sm font-medium text-gray-100"
+                >
+                  Mark
+                </h3>
+                <dl
+                  class="mt-1 flex flex-grow flex-col items-center justify-between"
+                >
+                  <dt class="sr-only">Bio</dt>
+                  <dd
+                    id="profile-user-bio"
+                    class="text-center text-sm text-gray-300"
+                  >
+                    bio here
+                  </dd>
+                  <dt class="sr-only">Email</dt>
+                  <dd class="mt-3">
+                    <span
+                      id="profile-user-email"
+                      class="rounded-full bg-emerald-600 px-2 py-1 text-xs font-medium text-white"
+                    >
+                      mark@gmail.com
+                    </span>
+                  </dd>
+                </dl>
+              </div>
+              <div class="flex justify-between">
+                <label
+                  id="profile-users-back"
+                  class="btn border-hidden bg-gray-800 hover:bg-gray-600 hover:text-gray-100"
+                  >Back</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!--Modals-->
+    <input type="checkbox" id="create-channel-modal" class="modal-toggle" />
+    <div class="modal">
+      <div class="modal-box bg-gray-700">
+        <form
+          id="create-channel-form"
+          class="space-y-6"
+          action="#"
+          method="POST"
+        >
+          <div>
+            <label
+              for="channel-name-create"
+              class="block text-sm font-medium text-gray-100"
+              >Channel Name</label
+            >
+            <div class="mt-1">
+              <input
+                id="channel-name-create"
+                name="channel-name-create"
+                type="text"
+                value="channel name"
+                class="block w-full appearance-none rounded-md border border-gray-300 bg-gray-600 px-3 py-2 text-gray-100 placeholder-gray-200 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 sm:text-sm"
+              />
+            </div>
+          </div>
+          <div>
+            <label
+              for="channel-description-create"
+              class="block text-sm font-medium text-gray-100"
+              >Channel Description</label
+            >
+            <div class="mt-1">
+              <input
+                id="channel-description-create"
+                name="channel-description-create"
+                type="text"
+                value="channel description"
+                class="block w-full appearance-none rounded-md border border-gray-300 bg-gray-600 px-3 py-2 text-gray-100 placeholder-gray-200 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 sm:text-sm"
+              />
+            </div>
+          </div>
+          <div>
+            <label
+              for="is-private"
+              class="block text-sm font-medium text-gray-100"
+              >is Private</label
+            >
+            <select
+              id="is-private"
+              name="is-private"
+              class="mt-1 block w-full rounded-md border-gray-300 bg-gray-600 py-2 pl-3 pr-10 text-gray-100 focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 sm:text-sm"
+            >
+              <option selected value="false">False</option>
+              <option value="true">True</option>
+            </select>
+          </div>
+          <div class="modal-action">
+            <label
+              for="create-channel-modal"
+              class="btn border-hidden bg-gray-800 hover:bg-gray-600 hover:text-gray-100"
+              >Cancel</label
+            >
+            <label
+              id="create-channel-submit"
+              for="create-channel-modal"
+              class="btn border-hidden bg-gray-800 hover:bg-gray-600 hover:text-gray-100"
+              >OK</label
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+    <input type="checkbox" id="channel-edit-modal" class="modal-toggle" />
+    <div class="modal">
+      <div class="modal-box bg-gray-700">
+        <form id="edit-channel-form" class="space-y-6" action="#" method="POST">
+          <div>
+            <label
+              for="channel-name-edit"
+              class="block text-sm font-medium text-gray-100"
+              >Channel Name</label
+            >
+            <div class="mt-1">
+              <input
+                id="channel-name-edit"
+                name="channel-name-edit"
+                type="text"
+                value="channel name"
+                class="block w-full appearance-none rounded-md border border-gray-300 bg-gray-600 px-3 py-2 text-gray-100 placeholder-gray-200 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 sm:text-sm"
+              />
+            </div>
+          </div>
+          <div>
+            <label
+              for="channel-description-edit"
+              class="block text-sm font-medium text-gray-100"
+              >Channel Description</label
+            >
+            <div class="mt-1">
+              <input
+                id="channel-description-edit"
+                name="channel-description-edit"
+                type="text"
+                value="channel description"
+                class="block w-full appearance-none rounded-md border border-gray-300 bg-gray-600 px-3 py-2 text-gray-100 placeholder-gray-200 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 sm:text-sm"
+              />
+            </div>
+          </div>
+          <div class="modal-action">
+            <label
+              for="channel-edit-modal"
+              class="btn border-hidden bg-gray-800 hover:bg-gray-600 hover:text-gray-100"
+              >Cancel</label
+            >
+            <label
+              id="edit-channel-submit"
+              for="channel-edit-modal"
+              class="btn border-hidden bg-gray-800 hover:bg-gray-600 hover:text-gray-100"
+              >OK</label
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+    <input type="checkbox" id="message-edit-modal" class="modal-toggle" />
+    <div class="modal">
+      <div class="modal-box bg-gray-700">
+        <form id="edit-message-form" class="space-y-6">
+          <div>
+            <label
+              for="message-content-edit"
+              class="block text-sm font-medium text-gray-100"
+              >Message Content</label
+            >
+            <div class="mt-1">
+              <input
+                id="message-content-edit"
+                name="message-content-edit"
+                type="text"
+                value=""
+                class="block w-full appearance-none rounded-md border border-gray-300 bg-gray-600 px-3 py-2 text-gray-100 placeholder-gray-200 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 sm:text-sm"
+              />
+            </div>
+          </div>
+          <div class="modal-action">
+            <label
+              for="message-edit-modal"
+              class="btn border-hidden bg-gray-800 hover:bg-gray-600 hover:text-gray-100"
+              >Cancel</label
+            >
+            <label
+              id="edit-message-submit"
+              for="message-edit-modal"
+              class="btn border-hidden bg-gray-800 hover:bg-gray-600 hover:text-gray-100"
+              >OK</label
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+    <input type="checkbox" id="message-delete-modal" class="modal-toggle" />
+    <div class="modal">
+      <div class="modal-box bg-gray-700">
+        <form id="delete-message-form" class="space-y-6">
+          <div>
+            <div class="block text-sm font-medium text-gray-100">
+              Are you sure to DELETE this message?
+            </div>
+          </div>
+          <div class="modal-action">
+            <label
+              for="message-delete-modal"
+              class="btn border-hidden bg-gray-800 hover:bg-gray-600 hover:text-gray-100"
+              >Cancel</label
+            >
+            <label
+              id="delete-message-submit"
+              for="message-delete-modal"
+              class="btn border-hidden bg-gray-800 hover:bg-gray-600 hover:text-gray-100"
+              >OK</label
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+    <input type="checkbox" id="invite-modal" class="modal-toggle" />
+    <div class="modal">
+      <div class="modal-box max-w-sm bg-gray-700">
+        <div class="flex justify-center px-14">
+          <div class="h-52 flex-1 overflow-y-scroll bg-gray-700 pl-2">
+            <ul
+              id="invite-ul"
+              role="list"
+              class="divide-y divide-gray-200"
+            ></ul>
+          </div>
+        </div>
+        <div class="flex justify-end gap-2">
+          <div class="modal-action">
+            <label
+              for="invite-modal"
+              class="btn border-hidden bg-gray-800 hover:bg-gray-600 hover:text-gray-100"
+            >
+              Cancel
+            </label>
+          </div>
+          <div class="modal-action">
+            <label
+              id="invite-user-submit"
+              for="invite-modal"
+              class="btn border-hidden bg-gray-800 hover:bg-gray-600 hover:text-gray-100"
+            >
+              OK
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="hidden divide-y divide-gray-200">
+      <li id="pseudo-invite-li" class="flex items-center gap-5 py-2.5">
+        <input
+          id="invite-user-1"
+          value="1"
+          aria-describedby="comments-description"
+          name=""
+          type="checkbox"
+          class="h-4 w-4 rounded border-gray-300 text-brand focus:ring-brand"
+        />
+        <label
+          class="flex select-none items-center gap-1.5"
+          for="invite-user-1"
+        >
+          <img class="h-8 w-8 rounded-full" src="./dist/avatar/25.png" alt="" />
+          <span class="text-sm font-medium text-gray-100">Calvin Hawkins</span>
+        </label>
+      </li>
+    </ul>
+    <label for="image-modal" class="modal-button" id="image-modal-btn"></label>
+    <input type="checkbox" id="image-modal" class="modal-toggle" />
+    <div class="modal">
+      <div class="modal-box bg-gray-700">
+        <div class="flex items-center justify-center gap-5">
+          <div class="h-7 w-7 items-center">
+            <button id="image-modal-left">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="h-7 w-7"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.72 12.53a.75.75 0 010-1.06l7.5-7.5a.75.75 0 111.06 1.06L9.31 12l6.97 6.97a.75.75 0 11-1.06 1.06l-7.5-7.5z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+          <img
+            id="image-modal-img"
+            class="h-auto w-52"
+            src="dist/avatar/25.png"
+            alt="message-img"
+          />
+          <div class="h-7 w-7 items-center">
+            <button id="image-modal-right">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="h-7 w-7"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="modal-action">
+          <label
+            for="image-modal"
+            class="btn border-hidden bg-gray-800 hover:bg-gray-600 hover:text-gray-100"
+          >
+            Close
+          </label>
+        </div>
+      </div>
+    </div>
+    <input type="checkbox" id="channel-leave-modal" class="modal-toggle" />
+    <div class="modal">
+      <div class="modal-box bg-gray-700">
+        <form id="leave-channel-form" class="space-y-6">
+          <div>
+            <div class="block text-sm font-medium text-gray-100">
+              Are you sure to LEAVE this channel?
+            </div>
+          </div>
+          <div class="modal-action">
+            <label
+              for="channel-leave-modal"
+              class="btn border-hidden bg-gray-800 hover:bg-gray-600 hover:text-gray-100"
+              >Cancel</label
+            >
+            <label
+              id="leave-channel-submit"
+              for="channel-leave-modal"
+              class="btn border-hidden bg-gray-800 hover:bg-gray-600 hover:text-gray-100"
+              >OK</label
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+    <input type="checkbox" id="channel-pin-modal" class="modal-toggle" />
+    <div class="modal">
+      <div class="modal-box bg-gray-700">
+        <div class="flex h-96 flex-1 flex-col-reverse overflow-y-scroll">
+          <div id="pin-container" class="w-full"></div>
+        </div>
+        <div class="modal-action">
+          <label
+            for="channel-pin-modal"
+            class="btn border-hidden bg-gray-800 hover:bg-gray-600 hover:text-gray-100"
+            >Close</label
+          >
+        </div>
+      </div>
+    </div>
+
+    <!--Error Modal-->
+    <label
+      for="error-modal"
+      class="modal-button hidden"
+      id="error-modal-btn"
+    ></label>
+    <input type="checkbox" id="error-modal" class="modal-toggle" />
+    <div class="modal">
+      <div class="modal-box bg-gray-700">
+        <div class="flex gap-5">
+          <div
+            class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10"
+          >
+            <svg
+              class="h-6 w-6 text-red-600"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 10.5v3.75m-9.303 3.376C1.83 19.126 2.914 21 4.645 21h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 4.88c-.866-1.501-3.032-1.501-3.898 0L2.697 17.626zM12 17.25h.007v.008H12v-.008z"
+              />
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <h3 class="font-title text-lg">Error!</h3>
+            <p id="error-modal-msg" class="py-4">error message</p>
+          </div>
+        </div>
+        <div class="modal-action">
+          <label
+            for="error-modal"
+            class="btn border-hidden bg-gray-800 hover:bg-gray-600 hover:text-gray-100"
+            >Close</label
+          >
+        </div>
+      </div>
+    </div>
+    <!--Success Modal-->
+    <label
+      for="success-modal"
+      class="modal-button hidden"
+      id="success-modal-btn"
+    ></label>
+    <input type="checkbox" id="success-modal" class="modal-toggle" />
+    <div class="modal">
+      <div class="modal-box bg-gray-700">
+        <div>
+          <div class="block text-sm font-medium text-gray-100">Success!</div>
+        </div>
+        <div class="modal-action">
+          <label
+            for="success-modal"
+            class="btn border-hidden bg-gray-800 hover:bg-gray-600 hover:text-gray-100"
+            >OK</label
+          >
+        </div>
+      </div>
+    </div>
+    <!--Channel Example-->
+    <a
+      id="channel-example"
+      href=""
+      class="group mx-2 flex !hidden items-center overflow-x-visible px-2 py-1 text-gray-300 hover:cursor-pointer hover:rounded hover:bg-gray-700 hover:text-gray-100"
+    >
+      <svg viewBox="0 0 24 24" class="mr-1.5 h-5 w-5 text-gray-400">
+        <path
+          fill="currentColor"
+          d="M5.887 21a.5.5 0 01-.493-.587L6 17H2.595a.5.5 0 01-.492-.586l.175-1A.5.5 0 012.77 15h3.58l1.06-6H4.005a.5.5 0 01-.492-.586l.175-1A.5.5 0 014.18 7h3.58l.637-3.587A.5.5 0 018.889 3h.984a.5.5 0 01.493.587L9.76 7h6l.637-3.587A.5.5 0 0116.889 3h.984a.5.5 0 01.493.587L17.76 7h3.405a.5.5 0 01.492.586l-.175 1A.5.5 0 0120.99 9h-3.58l-1.06 6h3.405a.5.5 0 01.492.586l-.175 1a.5.5 0 01-.492.414H16l-.637 3.587a.5.5 0 01-.492.413h-.984a.5.5 0 01-.493-.587L14 17H8l-.637 3.587a.5.5 0 01-.492.413h-.984zM9.41 9l-1.06 6h6l1.06-6h-6z"
+        />
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="mr-1.5 h-5 w-5 text-gray-400"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M12 1.5a5.25 5.25 0 00-5.25 5.25v3a3 3 0 00-3 3v6.75a3 3 0 003 3h10.5a3 3 0 003-3v-6.75a3 3 0 00-3-3v-3c0-2.9-2.35-5.25-5.25-5.25zm3.75 8.25v-3a3.75 3.75 0 10-7.5 0v3h7.5z"
+          clip-rule="evenodd"
+        />
+      </svg>
+      <span>lectures</span>
+      <!--      before:content-[attr(data-tip)] before:max-w-[4rem]-->
+      <label
+        for="invite-modal"
+        class="modal-button tooltip ml-auto h-4 w-4 text-gray-400 text-gray-200 opacity-0 hover:cursor-pointer hover:text-gray-100 group-hover:opacity-100"
+        data-tip="Invite"
+      >
+        <svg viewBox="0 0 16 16" class="h-4 w-4">
+          <path
+            fill="currentColor"
+            d="M14 2h2v1h-2v2h-1V3h-2V2h2V0h1v2zM6.5 8.007a2.5 2.5 0 000-5 2.5 2.5 0 000 5zM6.5 8.34c-3.24 0-5.5 1.647-5.5 4v.667h11v-.667c0-2.36-2.26-4-5.5-4z"
+          />
+        </svg>
+      </label>
+      <label
+        for="channel-edit-modal"
+        class="modal-button tooltip ml-1 h-4 w-4 text-gray-400 text-gray-200 opacity-0 hover:cursor-pointer hover:text-gray-100 group-hover:opacity-100"
+        data-tip="Edit"
+        onclick="document.getElementById('edit-channel-form').reset()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="h-4 w-4"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 00-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 00-2.282.819l-.922 1.597a1.875 1.875 0 00.432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 000 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 00-.432 2.385l.922 1.597a1.875 1.875 0 002.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 002.28-.819l.923-1.597a1.875 1.875 0 00-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 000-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 00-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 00-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 00-1.85-1.567h-1.843zM12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </label>
+    </a>
+    <div
+      id="channel-example-unjoined"
+      class="group mx-2 flex !hidden items-center overflow-x-visible px-2 py-1 text-gray-300 hover:rounded hover:bg-gray-700 hover:text-gray-100"
+    >
+      <svg viewBox="0 0 24 24" class="mr-1.5 h-5 w-5 text-gray-400">
+        <path
+          fill="currentColor"
+          d="M5.887 21a.5.5 0 01-.493-.587L6 17H2.595a.5.5 0 01-.492-.586l.175-1A.5.5 0 012.77 15h3.58l1.06-6H4.005a.5.5 0 01-.492-.586l.175-1A.5.5 0 014.18 7h3.58l.637-3.587A.5.5 0 018.889 3h.984a.5.5 0 01.493.587L9.76 7h6l.637-3.587A.5.5 0 0116.889 3h.984a.5.5 0 01.493.587L17.76 7h3.405a.5.5 0 01.492.586l-.175 1A.5.5 0 0120.99 9h-3.58l-1.06 6h3.405a.5.5 0 01.492.586l-.175 1a.5.5 0 01-.492.414H16l-.637 3.587a.5.5 0 01-.492.413h-.984a.5.5 0 01-.493-.587L14 17H8l-.637 3.587a.5.5 0 01-.492.413h-.984zM9.41 9l-1.06 6h6l1.06-6h-6z"
+        />
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="mr-1.5 h-5 w-5 text-gray-400"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M12 1.5a5.25 5.25 0 00-5.25 5.25v3a3 3 0 00-3 3v6.75a3 3 0 003 3h10.5a3 3 0 003-3v-6.75a3 3 0 00-3-3v-3c0-2.9-2.35-5.25-5.25-5.25zm3.75 8.25v-3a3.75 3.75 0 10-7.5 0v3h7.5z"
+          clip-rule="evenodd"
+        />
+      </svg>
+      <span class="select-none">lectures-uj</span>
+      <!--      before:content-[attr(data-tip)] before:max-w-[4rem]-->
+      <button
+        class="tooltip ml-auto flex h-4 w-4 items-center text-gray-200 opacity-0 hover:text-gray-100 group-hover:opacity-100"
+        data-tip="Join"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="h-4 w-4"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </button>
+    </div>
+    <!--Message Example-->
+    <div
+      id="message-example"
+      class="group relative my-2.5 flex !hidden py-0.5 pl-4 pr-16 hover:bg-gray-950/[.07]"
+    >
+      <!--Avatar-->
+      <img
+        class="z-0 mr-4 mt-0.5 h-10 w-10 select-none rounded-full"
+        src="./dist/avatar/25.png"
+        alt=""
+      />
+      <!--Username, Date, Message and Reaction-->
+      <div>
+        <p class="flex items-baseline">
+          <a href="#" class="mr-2 font-medium text-green-400 hover:underline">
+            UserName
+          </a>
+          <span class="mr-1.5 text-xs font-medium text-gray-400">
+            2022-10-01
+          </span>
+          <span class="mr-1.5 !hidden text-[10px] font-medium text-gray-400">
+            2022-10-01
+          </span>
+        </p>
+        <p class="text-gray-100">
+          ...where you can belong to a school club, a gaming group, or a
+          worldwide art community. Where just you and a handful of friends can
+          spend time together. A place that makes it easy to talk every day and
+          hang out more often.
+        </p>
+        <img
+          class="max-w-20 mt-0.5 max-h-20 hover:cursor-pointer"
+          src=""
+          alt=""
+        />
+        <!--Reactions-->
+        <div class="mt-1 flex gap-1.5">
+          <button
+            class="👀 flex h-6 items-center gap-1.5 rounded-lg border border-[1.5px] border-brand p-1.5"
+          >
+            👀
+            <span>1</span>
+          </button>
+          <button
+            class="🥳 flex h-6 items-center gap-1.5 rounded-lg border border-[1.5px] border-brand p-1.5"
+          >
+            🥳
+            <span>2</span>
+          </button>
+          <button
+            class="😵 bad flex h-6 items-center gap-1.5 rounded-lg border border-[1.5px] border-brand p-1.5"
+          >
+            😵
+            <span>20</span>
+          </button>
+        </div>
+      </div>
+      <!--Message Action-->
+      <div
+        class="message-action w-15 absolute -top-3 right-10 hidden h-6 rounded bg-gray-600 shadow-xl group-hover:flex"
+      >
+        <div
+          class="tooltip flex h-full items-center justify-center rounded px-1.5 text-gray-200 hover:cursor-pointer hover:bg-gray-500 hover:text-gray-100"
+          data-tip="Add Reaction"
+        >
+          <svg viewBox="0 0 24 24" class="w-4">
+            <path
+              fill="currentColor"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M12.2512 2.00309C12.1677 2.00104 12.084 2 12 2C6.477 2 2 6.477 2 12C2 17.522 6.477 22 12 22C17.523 22 22 17.522 22 12C22 11.916 21.999 11.8323 21.9969 11.7488C21.3586 11.9128 20.6895 12 20 12C15.5817 12 12 8.41828 12 4C12 3.31052 12.0872 2.6414 12.2512 2.00309ZM10 8C10 6.896 9.104 6 8 6C6.896 6 6 6.896 6 8C6 9.105 6.896 10 8 10C9.104 10 10 9.105 10 8ZM12 19C15.14 19 18 16.617 18 14V13H6V14C6 16.617 8.86 19 12 19Z"
+            ></path>
+            <path
+              d="M21 3V0H19V3H16V5H19V8H21V5H24V3H21Z"
+              fill="currentColor"
+            ></path>
+          </svg>
+        </div>
+        <div
+          class="tooltip flex h-full items-center justify-center rounded px-1.5 text-gray-200 hover:cursor-pointer hover:bg-gray-500 hover:text-gray-100"
+          data-tip="Pin"
+        >
+          <svg viewBox="0 0 24 24" class="w-4">
+            <path
+              fill="currentColor"
+              d="M22 12L12.101 2.10101L10.686 3.51401L12.101 4.92901L7.15096 9.87801V9.88001L5.73596 8.46501L4.32196 9.88001L8.56496 14.122L2.90796 19.778L4.32196 21.192L9.97896 15.536L14.222 19.778L15.636 18.364L14.222 16.95L19.171 12H19.172L20.586 13.414L22 12Z"
+            ></path>
+          </svg>
+        </div>
+        <label
+          for="message-edit-modal"
+          class="tooltip flex h-full items-center justify-center rounded px-1.5 text-gray-200 hover:cursor-pointer hover:bg-gray-500 hover:text-gray-100"
+          data-tip="Edit"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-4"
+          >
+            <path
+              d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z"
+            />
+            <path
+              d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z"
+            />
+          </svg>
+        </label>
+        <label
+          for="message-delete-modal"
+          class="tooltip flex h-full items-center justify-center rounded px-1.5 text-gray-200 hover:cursor-pointer hover:bg-gray-500 hover:text-gray-100"
+          data-tip="Delete"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-4"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </label>
+      </div>
+    </div>
+    <div class="mt-2 flex !hidden items-center self-center" id="loadingIcon">
+      <svg
+        class="mr-2 inline h-8 w-8 animate-spin fill-gray-600 text-gray-200 dark:fill-gray-300 dark:text-gray-600"
+        viewBox="0 0 100 101"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+          fill="currentColor"
+        />
+        <path
+          d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+          fill="currentFill"
+        />
+      </svg>
+      <span>Loading...</span>
+    </div>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
